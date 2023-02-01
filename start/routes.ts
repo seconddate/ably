@@ -23,3 +23,12 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+// User 시작
+Route.group(()=> {
+  Route.get('/', 'UsersController.cgetAction')
+  Route.post('/', 'UsersController.postAction')
+  Route.get('/:id', 'UsersController.getAction')
+  Route.put('/:id', 'UsersController.putAction')
+}).prefix('/users')
+
