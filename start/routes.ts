@@ -24,6 +24,9 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
+// 로그인/아웃
+Route.post('/login', 'UsersController.postLoginAction')
+
 // User 시작
 Route.group(()=> {
   Route.get('/', 'UsersController.cgetAction')
