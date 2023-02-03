@@ -1,5 +1,4 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
-import { DateTime } from 'luxon'
 
 export default class extends BaseSchema {
   protected tableName = 'api_tokens'
@@ -8,7 +7,7 @@ export default class extends BaseSchema {
     this.schema.raw('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";')
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
-      table.integer('user_id').unsigned()
+      table.integer('user_id').unsigned().notNullable()
       table.string('name').notNullable()
       table.string('type').notNullable()
       table.string('token', 64).notNullable().unique()

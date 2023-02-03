@@ -20,7 +20,7 @@ export default class extends BaseSchema {
        */
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
-      table.timestamp('last_login_at', { useTz: true })
+      table.timestamp('last_logined_at', { useTz: true })
       table.timestamp('tel_verified_at', { useTz: true })
     })
   }

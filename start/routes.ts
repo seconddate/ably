@@ -24,12 +24,16 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-// 로그인/아웃
+// 공통
 Route.post('/login', 'UsersController.postLoginAction')
+Route.post('/tel-auth', 'UsersController.postTelAuthenticationAction')
+Route.get('/tel-auth-confirm', 'UsersController.getTelAuthenticationConfirmAction')
+Route.get('/email-double-check', 'UsersController.getEmailDoubleCheckAction')
+Route.post('/change-password', 'UsersController.postChangePasswordAction')
 
 // User 시작
 Route.group(()=> {
-  Route.get('/', 'UsersController.cgetAction')
+  Route.get('/myInfo', 'UsersController.getAction').middleware('auth')
   Route.post('/', 'UsersController.postAction')
   Route.get('/:id', 'UsersController.getAction')
   Route.put('/:id', 'UsersController.putAction')

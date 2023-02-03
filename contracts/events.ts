@@ -5,6 +5,8 @@
  * file.
  */
 
+import PhoneAuthentication from 'App/Models/PhoneAuthentication'
+
 declare module '@ioc:Adonis/Core/Event' {
   /*
   |--------------------------------------------------------------------------
@@ -26,6 +28,6 @@ declare module '@ioc:Adonis/Core/Event' {
   |
   */
   interface EventsList {
-    //
+    'sendPhoneAuthentication:phoneAuthentication': PhoneAuthentication,
   }
 }
